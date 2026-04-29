@@ -14,15 +14,15 @@ const tiles = [
 export const Social = () => {
   const { ref, visible } = useReveal<HTMLDivElement>(0.12);
   return (
-    <section id="social" className="relative py-32 md:py-44">
+    <section id="social" className="relative py-20 md:py-44">
       <div className="container" ref={ref}>
-        <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
+        <div className="flex items-end justify-between flex-wrap gap-5 mb-10 md:mb-14">
           <div>
-            <p className={`font-eyebrow text-[11px] text-gold mb-6 flex items-center gap-4 reveal-up ${visible ? "in" : ""}`}>
-              <span className="h-px w-10 bg-gold/60" />
+            <p className={`font-eyebrow text-[10px] md:text-[11px] text-gold mb-4 md:mb-6 flex items-center gap-3 md:gap-4 reveal-up ${visible ? "in" : ""}`}>
+              <span className="h-px w-8 md:w-10 bg-gold/60" />
               Seen at Moire
             </p>
-            <h2 className={`font-display text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
+            <h2 className={`font-display font-black text-[clamp(2rem,6vw,5rem)] leading-[1.02] reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
               The room is <span className="italic gold-text">always</span> the story.
             </h2>
           </div>
@@ -32,7 +32,7 @@ export const Social = () => {
         </div>
 
         {/* Asymmetric grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
           {tiles.map((t, i) => (
             <a
               href="#"
@@ -88,25 +88,25 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <div className="mt-28">
-      <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
+    <div className="mt-20 md:mt-28">
+      <div className="flex items-end justify-between flex-wrap gap-5 mb-8 md:mb-12">
         <div>
-          <p className="font-eyebrow text-[11px] text-gold mb-4">★ ★ ★ ★ ★</p>
-          <h3 className="font-display text-4xl md:text-5xl leading-tight">
+          <p className="font-eyebrow text-[11px] text-gold mb-3 md:mb-4">★ ★ ★ ★ ★</p>
+          <h3 className="font-display font-black text-3xl md:text-5xl leading-tight">
             Rated <span className="gold-text">4.6</span> by 2,000+ guests
           </h3>
         </div>
       </div>
 
       <div className="relative overflow-hidden" style={{ maskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)" }}>
-        <div className="marquee gap-6">
+        <div className="marquee gap-5 md:gap-6">
           {[...reviews, ...reviews].map((r, i) => (
-            <div key={i} className="shrink-0 w-[360px] md:w-[420px] glass rounded-2xl p-7">
-              <div className="text-gold mb-4 text-sm tracking-widest">★ ★ ★ ★ ★</div>
-              <p className="font-display italic text-lg md:text-xl leading-snug text-foreground/85">
+            <div key={i} className="shrink-0 w-[280px] md:w-[420px] glass rounded-2xl p-6 md:p-7">
+              <div className="text-gold mb-3 md:mb-4 text-sm tracking-widest">★ ★ ★ ★ ★</div>
+              <p className="font-display italic font-bold text-base md:text-xl leading-snug text-foreground/90 whitespace-normal">
                 "{r.text}"
               </p>
-              <div className="hairline my-5" />
+              <div className="hairline my-4 md:my-5" />
               <p className="font-eyebrow text-[10px] text-foreground/60">— {r.name}</p>
             </div>
           ))}

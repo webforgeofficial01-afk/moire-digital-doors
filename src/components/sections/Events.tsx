@@ -31,32 +31,32 @@ export const Events = () => {
   const { ref, visible } = useReveal<HTMLDivElement>(0.12);
 
   return (
-    <section id="events" className="relative py-32 md:py-44 overflow-hidden">
+    <section id="events" className="relative py-20 md:py-44 overflow-hidden">
       {/* Glow backdrop */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full opacity-30 animate-drift" style={{ background: "radial-gradient(circle, hsl(var(--ember) / 0.4), transparent 60%)" }} />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full opacity-30 animate-drift" style={{ background: "radial-gradient(circle, hsl(var(--gold) / 0.35), transparent 60%)", animationDelay: "-10s" }} />
+        <div className="absolute top-1/4 left-0 w-[400px] h-[400px] md:w-[500px] md:h-[500px] rounded-full opacity-30 animate-drift" style={{ background: "radial-gradient(circle, hsl(var(--ember) / 0.4), transparent 60%)" }} />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full opacity-30 animate-drift" style={{ background: "radial-gradient(circle, hsl(var(--gold) / 0.35), transparent 60%)", animationDelay: "-10s" }} />
       </div>
 
       <div className="container relative z-10" ref={ref}>
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <p className={`font-eyebrow text-[11px] text-gold mb-6 reveal-up ${visible ? "in" : ""}`}>
-            <span className="inline-block h-px w-8 bg-gold/60 align-middle mr-3" />
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+          <p className={`font-eyebrow text-[10px] md:text-[11px] text-gold mb-4 md:mb-6 reveal-up ${visible ? "in" : ""}`}>
+            <span className="inline-block h-px w-6 md:w-8 bg-gold/60 align-middle mr-3" />
             This Week's Lineup
-            <span className="inline-block h-px w-8 bg-gold/60 align-middle ml-3" />
+            <span className="inline-block h-px w-6 md:w-8 bg-gold/60 align-middle ml-3" />
           </p>
-          <h2 className={`font-display text-[clamp(2.4rem,6.5vw,5.5rem)] leading-[1.02] reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
+          <h2 className={`font-display font-black text-[clamp(2.2rem,6.5vw,5.5rem)] leading-[1.02] reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
             Tonight, the city <br />
             <span className="italic gold-text">comes to us.</span>
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
           {lineup.map((ev, i) => (
             <article
               key={ev.name}
               className={`group relative rounded-3xl overflow-hidden cursor-pointer reveal-blur ${visible ? "in" : ""}`}
-              style={{ transitionDelay: `${i * 0.15}s`, minHeight: "560px" }}
+              style={{ transitionDelay: `${i * 0.15}s`, minHeight: "440px" }}
             >
               {/* Image full bleed */}
               <img
@@ -85,11 +85,11 @@ export const Events = () => {
               </div>
 
               {/* Bottom content */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 z-10">
-                <h3 className="font-display text-3xl md:text-4xl leading-tight mb-3 transition-transform duration-700 group-hover:-translate-y-1">
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10">
+                <h3 className="font-display font-black text-2xl md:text-4xl leading-tight mb-2 md:mb-3 transition-transform duration-700 group-hover:-translate-y-1">
                   {ev.name}
                 </h3>
-                <p className="text-sm text-foreground/65 mb-6 max-w-xs">{ev.desc}</p>
+                <p className="text-sm text-foreground/70 mb-5 md:mb-6 max-w-xs">{ev.desc}</p>
                 <div className="overflow-hidden">
                   <a
                     href="#reserve"
