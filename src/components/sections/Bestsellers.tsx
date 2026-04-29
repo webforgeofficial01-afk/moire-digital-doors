@@ -89,10 +89,10 @@ const TiltCard = ({ item, idx, visible }: { item: typeof items[number]; idx: num
         </div>
       </div>
 
-      <div className="relative p-7 z-20">
-        <h3 className="font-display text-3xl tracking-tight text-foreground">{item.name}</h3>
-        <p className="text-sm text-foreground/55 mt-2">{item.sub}</p>
-        <div className="hairline my-5" />
+      <div className="relative p-5 md:p-7 z-20">
+        <h3 className="font-display font-black text-2xl md:text-3xl tracking-tight text-foreground">{item.name}</h3>
+        <p className="text-sm text-foreground/65 mt-2">{item.sub}</p>
+        <div className="hairline my-4 md:my-5" />
         <div className="flex items-center justify-between">
           <span className="font-eyebrow text-[10px] text-gold">Available Tonight</span>
           <a href="#reserve" className="font-eyebrow text-[10px] text-foreground/70 hover:text-gold transition-colors flex items-center gap-2 group/link">
@@ -112,15 +112,15 @@ export const Bestsellers = () => {
       <div className="container" ref={ref}>
         <div className="flex items-end justify-between flex-wrap gap-5 mb-10 md:mb-16">
           <div>
-            <p className={`font-eyebrow text-[11px] text-gold mb-6 flex items-center gap-4 reveal-up ${visible ? "in" : ""}`}>
-              <span className="h-px w-10 bg-gold/60" />
+            <p className={`font-eyebrow text-[10px] md:text-[11px] text-gold mb-4 md:mb-6 flex items-center gap-3 md:gap-4 reveal-up ${visible ? "in" : ""}`}>
+              <span className="h-px w-8 md:w-10 bg-gold/60" />
               The Menu
             </p>
-            <h2 className={`font-display text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-tight reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
+            <h2 className={`font-display font-black text-[clamp(2rem,6vw,5rem)] leading-[1.02] tracking-tight reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
               Signature <span className="italic gold-text">Indulgences</span>
             </h2>
           </div>
-          <p className={`max-w-sm text-sm text-foreground/55 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.2s" }}>
+          <p className={`max-w-sm text-sm text-foreground/65 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.2s" }}>
             A short list of dishes and pours our regulars never stop ordering. Crafted in small numbers, served with intent.
           </p>
         </div>

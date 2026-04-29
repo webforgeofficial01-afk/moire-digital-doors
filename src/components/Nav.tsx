@@ -16,7 +16,7 @@ export const Nav = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-        scrolled ? "py-3" : "py-6"
+        scrolled ? "py-2.5 md:py-3" : "py-4 md:py-6"
       }`}
       style={{
         background: scrolled ? "linear-gradient(180deg, hsl(0 0% 4% / 0.85), hsl(0 0% 4% / 0.5))" : "transparent",
