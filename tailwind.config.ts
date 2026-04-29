@@ -7,12 +7,12 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1.5rem",
+      padding: { DEFAULT: "1.1rem", sm: "1.5rem", lg: "2rem" },
       screens: { "2xl": "1400px" },
     },
     extend: {
       fontFamily: {
-        display: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {

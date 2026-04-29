@@ -8,7 +8,7 @@ export const Signature = () => {
   const words = headline.split(" ");
 
   return (
-    <section id="signature" className="relative py-32 md:py-48 overflow-hidden">
+    <section id="signature" className="relative py-20 md:py-48 overflow-hidden">
       {/* BG with parallax-style fixed feel */}
       <div className="absolute inset-0">
         <img
@@ -27,12 +27,12 @@ export const Signature = () => {
       </div>
 
       <div className="container relative z-10" ref={ref}>
-        <p className={`font-eyebrow text-[11px] text-gold mb-10 flex items-center gap-4 reveal-up ${visible ? "in" : ""}`}>
-          <span className="h-px w-10 bg-gold/60" />
+        <p className={`font-eyebrow text-[10px] md:text-[11px] text-gold mb-6 md:mb-10 flex items-center gap-3 md:gap-4 reveal-up ${visible ? "in" : ""}`}>
+          <span className="h-px w-8 md:w-10 bg-gold/60" />
           The Signature Experience
         </p>
 
-        <h2 className="font-display text-[clamp(2.2rem,6vw,5.5rem)] leading-[1.05] tracking-tight max-w-5xl">
+        <h2 className="font-display font-black text-[clamp(2rem,6vw,5.5rem)] leading-[1.05] tracking-tight max-w-5xl">
           {words.map((w, i) => (
             <span key={i} className="inline-block overflow-hidden mr-[0.25em] last:mr-0">
               <span
@@ -51,17 +51,17 @@ export const Signature = () => {
           ))}
         </h2>
 
-        <div className={`mt-16 grid md:grid-cols-3 gap-8 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.5s" }}>
+        <div className={`mt-10 md:mt-16 grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.5s" }}>
           {[
             { k: "01", t: "Curated Crowd", d: "A guest list shaped by taste, not chance." },
             { k: "02", t: "Cinematic Setting", d: "Velvet, brass and candlelight engineered for atmosphere." },
             { k: "03", t: "Bespoke Service", d: "Your table remembered. Your order anticipated." },
           ].map((it) => (
             <div key={it.k} className="group">
-              <div className="font-display text-5xl gold-text mb-4">{it.k}</div>
-              <div className="hairline mb-5 group-hover:opacity-100 opacity-60 transition-opacity" />
-              <h3 className="font-display text-2xl mb-2">{it.t}</h3>
-              <p className="text-sm text-foreground/60 leading-relaxed">{it.d}</p>
+              <div className="font-display font-black text-4xl md:text-5xl gold-text mb-3 md:mb-4">{it.k}</div>
+              <div className="hairline mb-4 md:mb-5 group-hover:opacity-100 opacity-60 transition-opacity" />
+              <h3 className="font-display font-bold text-xl md:text-2xl mb-2">{it.t}</h3>
+              <p className="text-sm text-foreground/65 leading-relaxed">{it.d}</p>
             </div>
           ))}
         </div>

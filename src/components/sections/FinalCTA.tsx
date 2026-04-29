@@ -5,35 +5,35 @@ export const FinalCTA = () => {
   const { ref, visible } = useReveal<HTMLDivElement>(0.2);
 
   return (
-    <section id="reserve" className="relative py-40 md:py-56 overflow-hidden">
+    <section id="reserve" className="relative py-24 md:py-56 overflow-hidden">
       <div className="absolute inset-0">
         <img src={lounge} alt="" loading="lazy" width={1920} height={1080} className="h-full w-full object-cover scale-110 opacity-40" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, hsl(0 0% 0% / 0.5), hsl(0 0% 4%) 70%)" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-50 animate-pulse-glow" style={{ background: "radial-gradient(circle, hsl(var(--gold) / 0.35), transparent 65%)" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[700px] md:h-[700px] rounded-full opacity-50 animate-pulse-glow" style={{ background: "radial-gradient(circle, hsl(var(--gold) / 0.35), transparent 65%)" }} />
       </div>
 
       <div className="container relative z-10 text-center" ref={ref}>
-        <p className={`font-eyebrow text-[11px] text-gold mb-8 reveal-up ${visible ? "in" : ""}`}>
-          <span className="inline-block h-px w-8 bg-gold/60 align-middle mr-3" />
+        <p className={`font-eyebrow text-[10px] md:text-[11px] text-gold mb-6 md:mb-8 reveal-up ${visible ? "in" : ""}`}>
+          <span className="inline-block h-px w-6 md:w-8 bg-gold/60 align-middle mr-3" />
           The Final Word
-          <span className="inline-block h-px w-8 bg-gold/60 align-middle ml-3" />
+          <span className="inline-block h-px w-6 md:w-8 bg-gold/60 align-middle ml-3" />
         </p>
 
-        <h2 className={`font-display text-[clamp(3rem,10vw,9rem)] leading-[0.95] tracking-tight reveal-blur ${visible ? "in" : ""}`}>
+        <h2 className={`font-display font-black text-[clamp(2.6rem,10vw,9rem)] leading-[0.95] tracking-tight reveal-blur ${visible ? "in" : ""}`}>
           Your Table <br />
           <span className="italic gold-text">Awaits.</span>
         </h2>
 
-        <p className={`mt-10 max-w-md mx-auto text-foreground/65 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.3s" }}>
+        <p className={`mt-7 md:mt-10 max-w-md mx-auto text-sm md:text-base text-foreground/70 px-4 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.3s" }}>
           Reservations recommended after 7 PM. Walk-ins welcome only when capacity allows.
         </p>
 
-        <div className={`mt-14 flex flex-wrap justify-center items-center gap-4 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.5s" }}>
+        <div className={`mt-10 md:mt-14 flex flex-wrap justify-center items-center gap-3 md:gap-4 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.5s" }}>
           <a href="#" className="gold-button">🔥 Reserve Now</a>
           <a href="#" className="ghost-button">⚡ Priority Entry</a>
         </div>
 
-        <div className={`mt-20 inline-flex items-center gap-3 glass rounded-full px-5 py-2.5 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.7s" }}>
+        <div className={`mt-12 md:mt-20 inline-flex items-center gap-3 glass rounded-full px-5 py-2.5 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.7s" }}>
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ember opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-ember" />
@@ -46,9 +46,9 @@ export const FinalCTA = () => {
 };
 
 export const Footer = () => (
-  <footer className="border-t border-gold/15 py-16">
+  <footer className="border-t border-gold/15 py-12 md:py-16">
     <div className="container">
-      <div className="grid md:grid-cols-4 gap-10 mb-12">
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-10 md:mb-12">
         <div>
           <div className="flex items-center gap-3 mb-5">
             <div className="h-9 w-9 rounded-full border border-gold/60 bg-noir flex items-center justify-center font-display text-gold text-lg italic">M</div>

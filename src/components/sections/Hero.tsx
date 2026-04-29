@@ -18,7 +18,7 @@ export const Hero = () => {
   const fadeOpacity = Math.max(0, 1 - y / 700);
 
   return (
-    <section id="top" className="relative h-[100svh] min-h-[680px] w-full overflow-hidden">
+    <section id="top" className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
       {/* Cinematic background */}
       <div
         className="absolute inset-0 will-change-transform"
@@ -28,6 +28,7 @@ export const Hero = () => {
           src={heroImg}
           alt="Champagne pouring at Moire Cafe luxury lounge"
           className="h-full w-full object-cover animate-hero-zoom"
+          fetchPriority="high"
           width={1920}
           height={1080}
         />
@@ -37,9 +38,9 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-noir-top opacity-80" />
       </div>
 
-      {/* Floating embers (mid layer) */}
-      <div className="absolute inset-0 pointer-events-none" style={{ transform: midTransform }}>
-        {Array.from({ length: 14 }).map((_, i) => (
+      {/* Floating embers (mid layer) — fewer on mobile */}
+      <div className="absolute inset-0 pointer-events-none hidden sm:block" style={{ transform: midTransform }}>
+        {Array.from({ length: 10 }).map((_, i) => (
           <span
             key={i}
             className="absolute block rounded-full"
@@ -58,11 +59,11 @@ export const Hero = () => {
 
       {/* Content (foreground) */}
       <div
-        className="relative z-10 h-full container flex flex-col justify-end pb-20 md:pb-28 will-change-transform"
+        className="relative z-10 h-full container flex flex-col justify-end pb-14 md:pb-28 will-change-transform"
         style={{ transform: fgTransform, opacity: fadeOpacity }}
       >
         {/* Top status row */}
-        <div className="absolute top-32 md:top-36 left-6 right-6 md:left-auto md:right-12 md:max-w-xs">
+        <div className="absolute top-24 md:top-36 left-4 right-4 md:left-auto md:right-12 md:max-w-xs">
           <div className="glass rounded-2xl p-4 animate-fade-in" style={{ animationDelay: "1.4s" }}>
             <div className="flex items-center gap-2 mb-2">
               <span className="relative flex h-2 w-2">
@@ -90,7 +91,7 @@ export const Hero = () => {
         </div>
 
         {/* Headline */}
-        <h1 className="font-display text-[clamp(2.8rem,8.5vw,8rem)] leading-[0.95] tracking-tight text-foreground max-w-5xl">
+        <h1 className="font-display text-[clamp(2.6rem,8.5vw,8rem)] leading-[0.95] tracking-tight text-foreground max-w-5xl font-black">
           <span className="block overflow-hidden">
             <span className="block animate-fade-in" style={{ animationDelay: "0.6s" }}>An Experience</span>
           </span>
@@ -103,7 +104,7 @@ export const Hero = () => {
 
         {/* Subtext */}
         <p
-          className="mt-8 max-w-xl text-base md:text-lg text-foreground/70 font-light animate-fade-in"
+          className="mt-6 md:mt-8 max-w-xl text-sm md:text-lg text-foreground/75 font-light animate-fade-in"
           style={{ animationDelay: "1.1s" }}
         >
           Velvet booths. Bottle service. Signature nights curated for those who never settle.
@@ -111,7 +112,7 @@ export const Hero = () => {
         </p>
 
         {/* CTAs */}
-        <div className="mt-10 flex flex-wrap items-center gap-4 animate-fade-in" style={{ animationDelay: "1.3s" }}>
+        <div className="mt-7 md:mt-10 flex flex-wrap items-center gap-3 md:gap-4 animate-fade-in" style={{ animationDelay: "1.3s" }}>
           <a href="#reserve" className="gold-button">
             🔥 Reserve Table — Limited Tonight
           </a>

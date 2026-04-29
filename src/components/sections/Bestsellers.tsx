@@ -1,30 +1,30 @@
 import { useRef } from "react";
 import { useReveal } from "@/hooks/use-reveal";
 import cocktail from "@/assets/dish-cocktail.jpg";
-import wagyu from "@/assets/dish-wagyu.jpg";
-import pasta from "@/assets/dish-pasta.jpg";
+import tandoori from "@/assets/dish-tandoori.jpg";
+import butterChicken from "@/assets/dish-butter-chicken.jpg";
 
 const items = [
+  {
+    img: tandoori,
+    tag: "Chef's Pick",
+    name: "Tandoori Royale",
+    sub: "Clay-oven chicken · smoked spices · mint",
+    price: "₹ 695",
+  },
+  {
+    img: butterChicken,
+    tag: "House Signature",
+    name: "Butter Chicken",
+    sub: "Slow-cooked tomato · cream · charred butter",
+    price: "₹ 595",
+  },
   {
     img: cocktail,
     tag: "Reserved Selection",
     name: "Aurum 24K",
-    sub: "Smoked bourbon · gold leaf · bitters",
-    price: "₹ 1,450",
-  },
-  {
-    img: wagyu,
-    tag: "Chef's Pick",
-    name: "Wagyu Ember",
-    sub: "A5 wagyu · ash salt · gold flake",
-    price: "₹ 3,200",
-  },
-  {
-    img: pasta,
-    tag: "House Signature",
-    name: "Tartufo Nero",
-    sub: "Hand-cut tagliolini · black truffle",
-    price: "₹ 1,890",
+    sub: "Smoked whisky · gold leaf · bitters",
+    price: "₹ 850",
   },
 ];
 
@@ -89,10 +89,10 @@ const TiltCard = ({ item, idx, visible }: { item: typeof items[number]; idx: num
         </div>
       </div>
 
-      <div className="relative p-7 z-20">
-        <h3 className="font-display text-3xl tracking-tight text-foreground">{item.name}</h3>
-        <p className="text-sm text-foreground/55 mt-2">{item.sub}</p>
-        <div className="hairline my-5" />
+      <div className="relative p-5 md:p-7 z-20">
+        <h3 className="font-display font-black text-2xl md:text-3xl tracking-tight text-foreground">{item.name}</h3>
+        <p className="text-sm text-foreground/65 mt-2">{item.sub}</p>
+        <div className="hairline my-4 md:my-5" />
         <div className="flex items-center justify-between">
           <span className="font-eyebrow text-[10px] text-gold">Available Tonight</span>
           <a href="#reserve" className="font-eyebrow text-[10px] text-foreground/70 hover:text-gold transition-colors flex items-center gap-2 group/link">
@@ -108,24 +108,24 @@ const TiltCard = ({ item, idx, visible }: { item: typeof items[number]; idx: num
 export const Bestsellers = () => {
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
   return (
-    <section id="bestsellers" className="relative py-32 md:py-44">
+    <section id="bestsellers" className="relative py-20 md:py-44">
       <div className="container" ref={ref}>
-        <div className="flex items-end justify-between flex-wrap gap-6 mb-16">
+        <div className="flex items-end justify-between flex-wrap gap-5 mb-10 md:mb-16">
           <div>
-            <p className={`font-eyebrow text-[11px] text-gold mb-6 flex items-center gap-4 reveal-up ${visible ? "in" : ""}`}>
-              <span className="h-px w-10 bg-gold/60" />
+            <p className={`font-eyebrow text-[10px] md:text-[11px] text-gold mb-4 md:mb-6 flex items-center gap-3 md:gap-4 reveal-up ${visible ? "in" : ""}`}>
+              <span className="h-px w-8 md:w-10 bg-gold/60" />
               The Menu
             </p>
-            <h2 className={`font-display text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-tight reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
+            <h2 className={`font-display font-black text-[clamp(2rem,6vw,5rem)] leading-[1.02] tracking-tight reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
               Signature <span className="italic gold-text">Indulgences</span>
             </h2>
           </div>
-          <p className={`max-w-sm text-sm text-foreground/55 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.2s" }}>
+          <p className={`max-w-sm text-sm text-foreground/65 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.2s" }}>
             A short list of dishes and pours our regulars never stop ordering. Crafted in small numbers, served with intent.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-8">
           {items.map((it, i) => (
             <TiltCard key={it.name} item={it} idx={i} visible={visible} />
           ))}
