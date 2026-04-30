@@ -104,20 +104,19 @@ export const Hero = () => {
 
         {/* Subtext */}
         <p
-          className="mt-6 md:mt-8 max-w-xl text-sm md:text-lg text-foreground/75 font-light animate-fade-in"
+          className="mt-6 md:mt-8 max-w-xl text-base md:text-lg text-foreground/80 font-light leading-relaxed animate-fade-in"
           style={{ animationDelay: "1.1s" }}
         >
-          Velvet booths. Bottle service. Signature nights curated for those who never settle.
-          Welcome to a different kind of evening.
+          Not everyone gets in. Velvet booths, signature pours, and nights curated for those who know.
         </p>
 
         {/* CTAs */}
         <div className="mt-7 md:mt-10 flex flex-wrap items-center gap-3 md:gap-4 animate-fade-in" style={{ animationDelay: "1.3s" }}>
           <a href="#reserve" className="gold-button">
-            🔥 Reserve Table — Limited Tonight
+            Reserve a Table
           </a>
-          <a href="#events" className="ghost-button">
-            ⚡ Skip the Line
+          <a href="#reserve" className="ghost-button">
+            ⚡ Priority Entry
           </a>
         </div>
 
