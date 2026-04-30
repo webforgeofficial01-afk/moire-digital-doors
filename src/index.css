@@ -92,14 +92,24 @@
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 400;
+    font-size: 17px;
+    line-height: 1.6;
     background-color: hsl(var(--noir));
     background-image:
-      radial-gradient(ellipse at 20% 0%, hsl(42 75% 58% / 0.08), transparent 50%),
-      radial-gradient(ellipse at 80% 100%, hsl(18 90% 55% / 0.05), transparent 50%);
+      radial-gradient(ellipse at 18% -5%, hsl(42 75% 58% / 0.10), transparent 55%),
+      radial-gradient(ellipse at 82% 105%, hsl(18 90% 55% / 0.08), transparent 60%),
+      linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 3%) 100%);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+
+  @media (min-width: 768px) {
+    body { font-size: 16px; }
+  }
+
+  /* Tap highlight off — we provide our own feedback */
+  a, button { -webkit-tap-highlight-color: transparent; }
 
   ::selection {
     background: hsl(var(--gold) / 0.4);
