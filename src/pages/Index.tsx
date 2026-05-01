@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { Signature } from "@/components/sections/Signature";
-import { Bestsellers } from "@/components/sections/Bestsellers";
-import { Events } from "@/components/sections/Events";
+import { Menu } from "@/components/sections/Menu";
+import { WhyUs } from "@/components/sections/WhyUs";
 import { Social } from "@/components/sections/Social";
 import { Ticker } from "@/components/sections/Ticker";
 import { FinalCTA, Footer } from "@/components/sections/FinalCTA";
 import { EntryGate } from "@/components/EntryGate";
 import { ReservationModal } from "@/components/ReservationModal";
+import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { onReservationOpen, openReservation } from "@/lib/reservation";
 
 const Index = () => {
@@ -20,7 +21,6 @@ const Index = () => {
       setPriority(p);
       setResOpen(true);
     });
-    // Intercept any anchor pointing to #reserve and open modal instead
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       const anchor = target?.closest('a[href="#reserve"]') as HTMLAnchorElement | null;
@@ -42,12 +42,13 @@ const Index = () => {
       <Nav />
       <Hero />
       <Signature />
-      <Bestsellers />
+      <Menu />
       <Ticker />
-      <Events />
+      <WhyUs />
       <Social />
       <FinalCTA />
       <Footer />
+      <MobileStickyCTA />
       <ReservationModal open={resOpen} onClose={() => setResOpen(false)} defaultPriority={priority} />
     </main>
   );
