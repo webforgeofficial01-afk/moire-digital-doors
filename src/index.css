@@ -201,24 +201,26 @@
 
   .reveal-up {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s var(--ease-luxe), transform 1s var(--ease-luxe);
+    transform: translateY(50px);
+    transition: opacity 1.1s var(--ease-luxe), transform 1.1s var(--ease-luxe), filter 1.1s var(--ease-luxe);
+    filter: blur(6px);
   }
   .reveal-up.in {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 
   .reveal-blur {
     opacity: 0;
-    filter: blur(20px);
-    transform: translateY(20px);
-    transition: opacity 1.2s var(--ease-luxe), filter 1.2s var(--ease-luxe), transform 1.2s var(--ease-luxe);
+    filter: blur(24px);
+    transform: translateY(28px) scale(0.985);
+    transition: opacity 1.4s var(--ease-luxe), filter 1.4s var(--ease-luxe), transform 1.4s var(--ease-luxe);
   }
   .reveal-blur.in {
     opacity: 1;
     filter: blur(0);
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 
   .tilt-card {
@@ -285,10 +287,12 @@
 
   .marquee {
     display: flex;
-    animation: marquee 40s linear infinite;
+    animation: marquee 32s linear infinite;
     white-space: nowrap;
     will-change: transform;
+    transform: translateZ(0);
   }
+  .marquee:hover { animation-play-state: paused; }
 }
 
 /* Mobile container tightening */
@@ -349,7 +353,8 @@
 }
 
 @keyframes word-in {
-  0% { opacity: 0; transform: translateY(30px) rotateX(-40deg); filter: blur(8px); }
+  0% { opacity: 0; transform: translateY(110%) rotateX(-35deg); filter: blur(10px); }
+  60% { opacity: 1; filter: blur(0); }
   100% { opacity: 1; transform: translateY(0) rotateX(0); filter: blur(0); }
 }
 

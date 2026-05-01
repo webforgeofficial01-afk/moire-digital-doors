@@ -32,23 +32,22 @@ export const Signature = () => {
           The Signature Experience
         </p>
 
-        <h2 className="font-display font-black text-[clamp(2rem,6vw,5.5rem)] leading-[1.05] tracking-tight max-w-5xl">
-          {words.map((w, i) => (
-            <span key={i} className="inline-block overflow-hidden mr-[0.25em] last:mr-0">
-              <span
-                className="inline-block"
-                style={{
-                  animation: visible ? `word-in 0.9s cubic-bezier(0.22,1,0.36,1) ${i * 0.08}s both` : "none",
-                }}
-              >
-                {w === "And" || w === "that's" || w === "the" || w === "point." ? (
-                  <span className="italic gold-text">{w}</span>
-                ) : (
-                  w
-                )}
+        <h2 className="font-display font-black text-[clamp(1.85rem,6vw,5.5rem)] leading-[1.08] tracking-tight max-w-5xl">
+          {words.map((w, i) => {
+            const isAccent = w === "And" || w === "that's" || w === "the" || w === "point.";
+            return (
+              <span key={i} className="inline-block overflow-hidden align-baseline mr-[0.22em] last:mr-0">
+                <span
+                  className="inline-block"
+                  style={{
+                    animation: visible ? `word-in 0.95s cubic-bezier(0.22,1,0.36,1) ${i * 0.07}s both` : "none",
+                  }}
+                >
+                  {isAccent ? <span className="italic gold-text">{w}</span> : w}
+                </span>
               </span>
-            </span>
-          ))}
+            );
+          })}
         </h2>
 
         <div className={`mt-10 md:mt-16 grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.5s" }}>

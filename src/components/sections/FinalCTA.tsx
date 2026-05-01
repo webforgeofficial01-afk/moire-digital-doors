@@ -19,9 +19,9 @@ export const FinalCTA = () => {
           <span className="inline-block h-px w-6 md:w-8 bg-gold/60 align-middle ml-3" />
         </p>
 
-        <h2 className={`font-display font-black text-[clamp(2.6rem,10vw,9rem)] leading-[0.95] tracking-tight reveal-blur ${visible ? "in" : ""}`}>
-          Your Table <br />
-          <span className="italic gold-text">Awaits.</span>
+        <h2 className={`font-display font-black text-[clamp(2.4rem,9vw,8.5rem)] leading-[0.95] tracking-tight reveal-blur ${visible ? "in" : ""}`}>
+          <span className="block">Your Table</span>
+          <span className="block italic gold-text">Awaits.</span>
         </h2>
 
         <p className={`mt-7 md:mt-10 max-w-md mx-auto text-sm md:text-base text-foreground/70 px-4 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.3s" }}>
@@ -80,6 +80,11 @@ export const Footer = () => (
       <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] text-foreground/45 font-eyebrow">
         <span>© {new Date().getFullYear()} The Lounge, Noida. All rights reserved.</span>
         <span>Crafted with intent.</span>
+      </div>
+      <div className="mt-8 pt-6 border-t border-gold/10 text-center">
+        <p className="font-eyebrow text-[10px] md:text-[11px] tracking-[0.32em] text-foreground/55">
+          Demo Made By <span className="gold-text font-bold">Velora Studio</span>
+        </p>
       </div>
     </div>
   </footer>
