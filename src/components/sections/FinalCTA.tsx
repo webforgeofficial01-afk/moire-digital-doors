@@ -19,9 +19,9 @@ export const FinalCTA = () => {
           <span className="inline-block h-px w-6 md:w-8 bg-gold/60 align-middle ml-3" />
         </p>
 
-        <h2 className={`font-display font-black text-[clamp(2.6rem,10vw,9rem)] leading-[0.95] tracking-tight reveal-blur ${visible ? "in" : ""}`}>
-          Your Table <br />
-          <span className="italic gold-text">Awaits.</span>
+        <h2 className={`font-display font-black text-[clamp(2.4rem,9vw,8.5rem)] leading-[0.95] tracking-tight reveal-blur ${visible ? "in" : ""}`}>
+          <span className="block">Your Table</span>
+          <span className="block italic gold-text">Awaits.</span>
         </h2>
 
         <p className={`mt-7 md:mt-10 max-w-md mx-auto text-sm md:text-base text-foreground/70 px-4 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.3s" }}>
