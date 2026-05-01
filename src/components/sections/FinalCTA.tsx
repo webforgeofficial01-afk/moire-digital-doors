@@ -81,6 +81,11 @@ export const Footer = () => (
         <span>© {new Date().getFullYear()} The Lounge, Noida. All rights reserved.</span>
         <span>Crafted with intent.</span>
       </div>
+      <div className="mt-8 pt-6 border-t border-gold/10 text-center">
+        <p className="font-eyebrow text-[10px] md:text-[11px] tracking-[0.32em] text-foreground/55">
+          Demo Made By <span className="gold-text font-bold">Velora Studio</span>
+        </p>
+      </div>
     </div>
   </footer>
 );
