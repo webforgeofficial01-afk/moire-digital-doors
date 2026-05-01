@@ -25,8 +25,8 @@ export const Hero = () => {
         style={{ transform: bgTransform }}
       >
         <img
-    src={heroImg}
-        alt="The Lounge — premium evening dining and cocktails in Noida"
+          src={heroImg}
+          alt="The Lounge — premium evening dining and cocktails in Noida"
           className="h-full w-full object-cover animate-hero-zoom"
           fetchPriority="high"
           width={1920}
