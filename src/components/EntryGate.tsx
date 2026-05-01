@@ -73,10 +73,10 @@ export const EntryGate = () => {
         }`}
       >
         {/* Top hairline */}
-        <div className="absolute top-10 md:top-12 left-1/2 -translate-x-1/2 flex items-center gap-3">
-          <span className="h-px w-10 bg-gold/60" />
-          <span className="font-eyebrow text-[10px] text-gold/90">EST · Noida</span>
-          <span className="h-px w-10 bg-gold/60" />
+        <div className="absolute top-10 md:top-12 left-1/2 -translate-x-1/2 flex items-center gap-3 whitespace-nowrap">
+          <span className="h-px w-8 md:w-10 bg-gold/60" />
+          <span className="font-eyebrow text-[9px] md:text-[10px] text-gold/90">EST · NOIDA</span>
+          <span className="h-px w-8 md:w-10 bg-gold/60" />
         </div>
 
         {/* Mark */}
