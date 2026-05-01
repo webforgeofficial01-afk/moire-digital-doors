@@ -349,7 +349,8 @@
 }
 
 @keyframes word-in {
-  0% { opacity: 0; transform: translateY(30px) rotateX(-40deg); filter: blur(8px); }
+  0% { opacity: 0; transform: translateY(110%) rotateX(-35deg); filter: blur(10px); }
+  60% { opacity: 1; filter: blur(0); }
   100% { opacity: 1; transform: translateY(0) rotateX(0); filter: blur(0); }
 }
 
