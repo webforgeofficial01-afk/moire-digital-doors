@@ -22,7 +22,7 @@ export const Social = () => {
               <span className="h-px w-8 md:w-10 bg-gold/60" />
               Seen at Moire
             </p>
-            <h2 className={`font-display font-black text-[clamp(2rem,6vw,5rem)] leading-[1.02] reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
+            <h2 className={`font-display font-black text-[clamp(1.85rem,6vw,5rem)] leading-[1.08] reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.1s" }}>
               The room is <span className="italic gold-text">always</span> the story.
             </h2>
           </div>
