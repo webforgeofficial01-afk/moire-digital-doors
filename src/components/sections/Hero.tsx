@@ -59,43 +59,43 @@ export const Hero = () => {
 
       {/* Content (foreground) */}
       <div
-        className="relative z-10 h-full container flex flex-col justify-end pb-14 md:pb-28 will-change-transform"
+        className="relative z-10 h-full container flex flex-col justify-end pb-16 md:pb-28 will-change-transform"
         style={{ transform: fgTransform, opacity: fadeOpacity }}
       >
-        {/* Top status row */}
-        <div className="absolute top-24 md:top-36 left-4 right-4 md:left-auto md:right-12 md:max-w-xs">
-          <div className="glass rounded-2xl p-4 animate-fade-in" style={{ animationDelay: "1.4s" }}>
-            <div className="flex items-center gap-2 mb-2">
+        {/* Top status row — pushed below nav, contained on mobile */}
+        <div className="absolute top-20 md:top-36 right-4 md:right-12 max-w-[220px] md:max-w-xs">
+          <div className="glass rounded-2xl p-3 md:p-4 animate-fade-in" style={{ animationDelay: "1.4s" }}>
+            <div className="flex items-center gap-2 mb-1.5">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ember opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-ember" />
               </span>
-              <span className="font-eyebrow text-[10px] text-gold">Live · Tonight</span>
+              <span className="font-eyebrow text-[9px] md:text-[10px] text-gold">Live · Tonight</span>
             </div>
-            <p className="text-sm text-foreground/90 font-light">
+            <p className="text-xs md:text-sm text-foreground/90 font-light leading-snug">
               <span className="text-gold font-semibold">🔥 {count} bookings</span> in the last hour
             </p>
-            <p className="text-[11px] text-foreground/50 mt-1">Members & reservations prioritized</p>
+            <p className="hidden md:block text-[11px] text-foreground/50 mt-1">Members & reservations prioritized</p>
           </div>
         </div>
 
         {/* Eyebrow */}
-        <div className="overflow-hidden mb-6">
+        <div className="overflow-hidden mb-5 md:mb-6">
           <p
-            className="font-eyebrow text-[11px] md:text-xs text-gold animate-fade-in flex items-center gap-4"
+            className="font-eyebrow text-[10px] md:text-xs text-gold animate-fade-in flex items-center gap-3 md:gap-4"
             style={{ animationDelay: "0.4s" }}
           >
-            <span className="h-px w-12 bg-gold/60" />
+            <span className="h-px w-10 md:w-12 bg-gold/60" />
             The Lounge · Noida
           </p>
         </div>
 
-        {/* Headline */}
-        <h1 className="font-display text-[clamp(2.6rem,8.5vw,8rem)] leading-[0.95] tracking-tight text-foreground max-w-5xl font-black">
-          <span className="block overflow-hidden">
+        {/* Headline — tighter mobile clamp to prevent overflow at 360px */}
+        <h1 className="font-display text-[clamp(2.1rem,8vw,8rem)] leading-[0.98] tracking-tight text-foreground max-w-5xl font-black">
+          <span className="block overflow-hidden pb-1">
             <span className="block animate-fade-in" style={{ animationDelay: "0.6s" }}>Where Evenings</span>
           </span>
-          <span className="block overflow-hidden">
+          <span className="block overflow-hidden pb-1">
             <span className="block animate-fade-in italic" style={{ animationDelay: "0.85s" }}>
               Turn Into <span className="gold-text not-italic font-semibold">Experiences</span>
             </span>
@@ -104,7 +104,7 @@ export const Hero = () => {
 
         {/* Subtext */}
         <p
-          className="mt-6 md:mt-8 max-w-xl text-base md:text-lg text-foreground/80 font-light leading-relaxed animate-fade-in"
+          className="mt-5 md:mt-8 max-w-xl text-sm md:text-lg text-foreground/80 font-light leading-relaxed animate-fade-in"
           style={{ animationDelay: "1.1s" }}
         >
           Crafted ambience, signature cocktails, and unforgettable nights.
