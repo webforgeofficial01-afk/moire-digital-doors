@@ -3,9 +3,9 @@ import { useScrollY } from "@/hooks/use-reveal";
 
 const links = [
   { label: "Experience", href: "#signature" },
-  { label: "Indulgences", href: "#bestsellers" },
-  { label: "Lineup", href: "#events" },
-  { label: "Seen At", href: "#social" },
+  { label: "Menu", href: "#menu" },
+  { label: "Why Us", href: "#why" },
+  { label: "Gallery", href: "#social" },
 ];
 
 export const Nav = () => {
@@ -29,12 +29,12 @@ export const Nav = () => {
           <div className="relative h-9 w-9">
             <div className="absolute inset-0 rounded-full bg-gradient-gold opacity-90 blur-md group-hover:opacity-100 transition-opacity" />
             <div className="relative h-full w-full rounded-full border border-gold/60 bg-noir flex items-center justify-center font-display text-gold text-lg italic">
-              M
+              L
             </div>
           </div>
           <div className="leading-none">
-            <div className="font-display text-xl tracking-tight text-foreground">Moire</div>
-            <div className="font-eyebrow text-[9px] text-gold/80 mt-0.5">Cafe · Noida</div>
+            <div className="font-display text-xl tracking-tight text-foreground">The Lounge</div>
+            <div className="font-eyebrow text-[9px] text-gold/80 mt-0.5">Noida</div>
           </div>
         </a>
 

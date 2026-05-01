@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "moire_entered";
+const STORAGE_KEY = "lounge_entered";
 
 export const EntryGate = () => {
   const [mounted, setMounted] = useState(false);
@@ -38,7 +38,7 @@ export const EntryGate = () => {
     <div
       className="fixed inset-0 z-[200] overflow-hidden"
       role="dialog"
-      aria-label="Moire Cafe — Access"
+      aria-label="The Lounge — Access"
       aria-modal="true"
     >
       {/* Base black */}
@@ -87,17 +87,17 @@ export const EntryGate = () => {
           <div className="relative h-16 w-16 md:h-20 md:w-20 mx-auto">
             <div className="absolute inset-0 rounded-full bg-gradient-gold opacity-60 blur-xl" />
             <div className="relative h-full w-full rounded-full border border-gold/60 bg-noir/80 flex items-center justify-center font-display text-gold text-3xl md:text-4xl italic font-black">
-              M
+              L
             </div>
           </div>
         </div>
 
         {/* Wordmark */}
         <h1
-          className="font-display font-black tracking-[0.3em] text-[2.6rem] md:text-[5rem] leading-none gold-text opacity-0"
+          className="font-display font-black tracking-[0.25em] text-[2rem] md:text-[4.5rem] leading-none gold-text opacity-0"
           style={{ animation: "gate-fade 1s cubic-bezier(0.22,1,0.36,1) 0.35s forwards" }}
         >
-          MOIRE
+          THE LOUNGE
         </h1>
 
         <div

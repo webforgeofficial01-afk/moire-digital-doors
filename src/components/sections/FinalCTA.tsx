@@ -29,8 +29,8 @@ export const FinalCTA = () => {
         </p>
 
         <div className={`mt-10 md:mt-14 flex flex-wrap justify-center items-center gap-3 md:gap-4 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.5s" }}>
-          <a href="#" className="gold-button">🔥 Reserve Now</a>
-          <a href="#" className="ghost-button">⚡ Priority Entry</a>
+          <a href="#reserve" className="gold-button">🔥 Reserve Now</a>
+          <a href="#menu" className="ghost-button">View Menu</a>
         </div>
 
         <div className={`mt-12 md:mt-20 inline-flex items-center gap-3 glass rounded-full px-5 py-2.5 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.7s" }}>
@@ -51,13 +51,13 @@ export const Footer = () => (
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-10 md:mb-12">
         <div>
           <div className="flex items-center gap-3 mb-5">
-            <div className="h-9 w-9 rounded-full border border-gold/60 bg-noir flex items-center justify-center font-display text-gold text-lg italic">M</div>
+            <div className="h-9 w-9 rounded-full border border-gold/60 bg-noir flex items-center justify-center font-display text-gold text-lg italic">L</div>
             <div>
-              <div className="font-display text-xl">Moire</div>
-              <div className="font-eyebrow text-[9px] text-gold/80">Cafe · Noida</div>
+              <div className="font-display text-xl">The Lounge</div>
+              <div className="font-eyebrow text-[9px] text-gold/80">Noida</div>
             </div>
           </div>
-          <p className="text-sm text-foreground/55 max-w-xs">An experience reserved for those who never settle.</p>
+          <p className="text-sm text-foreground/55 max-w-xs">Where evenings turn into experiences.</p>
         </div>
         <div>
           <p className="font-eyebrow text-[10px] text-gold mb-5">Visit</p>
@@ -65,7 +65,7 @@ export const Footer = () => (
         </div>
         <div>
           <p className="font-eyebrow text-[10px] text-gold mb-5">Reserve</p>
-          <p className="text-sm text-foreground/70 leading-relaxed">+91 98XXX XXXXX<br />reserve@moirecafe.in</p>
+          <p className="text-sm text-foreground/70 leading-relaxed">+91 98XXX XXXXX<br />reserve@theloungenoida.in</p>
         </div>
         <div>
           <p className="font-eyebrow text-[10px] text-gold mb-5">Follow</p>
@@ -78,7 +78,7 @@ export const Footer = () => (
       </div>
       <div className="hairline mb-6" />
       <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] text-foreground/45 font-eyebrow">
-        <span>© {new Date().getFullYear()} Moire Cafe. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} The Lounge, Noida. All rights reserved.</span>
         <span>Crafted with intent.</span>
       </div>
     </div>

@@ -26,7 +26,7 @@ export const Hero = () => {
       >
         <img
           src={heroImg}
-          alt="Champagne pouring at Moire Cafe luxury lounge"
+          alt="The Lounge — premium evening dining and cocktails in Noida"
           className="h-full w-full object-cover animate-hero-zoom"
           fetchPriority="high"
           width={1920}
@@ -86,18 +86,18 @@ export const Hero = () => {
             style={{ animationDelay: "0.4s" }}
           >
             <span className="h-px w-12 bg-gold/60" />
-            Moire Cafe · Noida's Elite Lounge
+            The Lounge · Noida
           </p>
         </div>
 
         {/* Headline */}
         <h1 className="font-display text-[clamp(2.6rem,8.5vw,8rem)] leading-[0.95] tracking-tight text-foreground max-w-5xl font-black">
           <span className="block overflow-hidden">
-            <span className="block animate-fade-in" style={{ animationDelay: "0.6s" }}>An Experience</span>
+            <span className="block animate-fade-in" style={{ animationDelay: "0.6s" }}>Where Evenings</span>
           </span>
           <span className="block overflow-hidden">
             <span className="block animate-fade-in italic" style={{ animationDelay: "0.85s" }}>
-              Reserved <span className="gold-text not-italic font-semibold">for the Few</span>
+              Turn Into <span className="gold-text not-italic font-semibold">Experiences</span>
             </span>
           </span>
         </h1>
@@ -107,7 +107,7 @@ export const Hero = () => {
           className="mt-6 md:mt-8 max-w-xl text-base md:text-lg text-foreground/80 font-light leading-relaxed animate-fade-in"
           style={{ animationDelay: "1.1s" }}
         >
-          Not everyone gets in. Velvet booths, signature pours, and nights curated for those who know.
+          Crafted ambience, signature cocktails, and unforgettable nights.
         </p>
 
         {/* CTAs */}
@@ -115,10 +115,22 @@ export const Hero = () => {
           <a href="#reserve" className="gold-button">
             Reserve a Table
           </a>
-          <a href="#reserve" className="ghost-button">
-            ⚡ Priority Entry
+          <a href="#menu" className="ghost-button">
+            View Menu
           </a>
         </div>
+
+        {/* Urgency */}
+        <p
+          className="mt-5 md:mt-6 font-eyebrow text-[10px] text-ember/90 animate-fade-in flex items-center gap-2"
+          style={{ animationDelay: "1.5s" }}
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ember opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-ember" />
+          </span>
+          Limited seating available tonight
+        </p>
 
         {/* Bottom marker */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-60">
