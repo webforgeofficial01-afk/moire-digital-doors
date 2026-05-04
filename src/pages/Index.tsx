@@ -10,6 +10,8 @@ import { FinalCTA, Footer } from "@/components/sections/FinalCTA";
 import { EntryGate } from "@/components/EntryGate";
 import { ReservationModal } from "@/components/ReservationModal";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
+import { UrgencyBar } from "@/components/UrgencyBar";
+import { Spotlight } from "@/components/Spotlight";
 import { onReservationOpen, openReservation } from "@/lib/reservation";
 
 const Index = () => {
@@ -27,7 +29,7 @@ const Index = () => {
       if (!anchor) return;
       e.preventDefault();
       const text = (anchor.textContent || "").toLowerCase();
-      openReservation(text.includes("priority") || text.includes("skip"));
+      openReservation(text.includes("priority") || text.includes("skip") || text.includes("claim"));
     };
     document.addEventListener("click", onClick);
     return () => {
@@ -39,6 +41,10 @@ const Index = () => {
   return (
     <main className="relative bg-noir text-foreground overflow-x-hidden">
       <EntryGate />
+      <Spotlight />
+      <UrgencyBar />
+      {/* SEO H1 — visually hidden, single H1 for crawlers */}
+      <h1 className="sr-only">The Lounge Noida — Premium Cafe & Late-Night Lounge in Sector 18</h1>
       <Nav />
       <Hero />
       <Signature />
