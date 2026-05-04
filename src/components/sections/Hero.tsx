@@ -91,7 +91,7 @@ export const Hero = () => {
         </div>
 
         {/* Headline — tighter mobile clamp to prevent overflow at 360px */}
-        <h1 className="font-display text-[clamp(2.1rem,8vw,8rem)] leading-[0.98] tracking-tight text-foreground max-w-5xl font-black">
+        <h2 className="font-display text-[clamp(2.1rem,8vw,8rem)] leading-[0.98] tracking-tight text-foreground max-w-5xl font-black">
           <span className="block overflow-hidden pb-1">
             <span className="block animate-fade-in" style={{ animationDelay: "0.6s" }}>Where Evenings</span>
           </span>
@@ -100,20 +100,20 @@ export const Hero = () => {
               Turn Into <span className="gold-text not-italic font-semibold">Experiences</span>
             </span>
           </span>
-        </h1>
+        </h2>
 
         {/* Subtext */}
         <p
           className="mt-5 md:mt-8 max-w-xl text-sm md:text-lg text-foreground/80 font-light leading-relaxed animate-fade-in"
           style={{ animationDelay: "1.1s" }}
         >
-          Crafted ambience, signature cocktails, and unforgettable nights.
+          Crafted ambience. Signature cocktails. Nights that get talked about for weeks. <span className="text-gold font-semibold">Tonight is filling fast.</span>
         </p>
 
         {/* CTAs */}
         <div className="mt-7 md:mt-10 flex flex-wrap items-center gap-3 md:gap-4 animate-fade-in" style={{ animationDelay: "1.3s" }}>
           <a href="#reserve" className="gold-button">
-            Reserve a Table
+            🔥 Claim Tonight's Table
           </a>
           <a href="#menu" className="ghost-button">
             View Menu
@@ -129,7 +129,7 @@ export const Hero = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ember opacity-75" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-ember" />
           </span>
-          Limited seating available tonight
+          Only a few tables left for tonight · Members & reservations seated first
         </p>
 
         {/* Bottom marker */}
