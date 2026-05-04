@@ -4,6 +4,8 @@ import { Hero } from "@/components/sections/Hero";
 import { Signature } from "@/components/sections/Signature";
 import { Menu } from "@/components/sections/Menu";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { Press } from "@/components/sections/Press";
+import { FAQ } from "@/components/sections/FAQ";
 import { Social } from "@/components/sections/Social";
 import { Ticker } from "@/components/sections/Ticker";
 import { FinalCTA, Footer } from "@/components/sections/FinalCTA";
@@ -12,6 +14,8 @@ import { ReservationModal } from "@/components/ReservationModal";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { UrgencyBar } from "@/components/UrgencyBar";
 import { Spotlight } from "@/components/Spotlight";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { AmbientToggle } from "@/components/AmbientToggle";
 import { onReservationOpen, openReservation } from "@/lib/reservation";
 
 const Index = () => {
@@ -41,20 +45,24 @@ const Index = () => {
   return (
     <main className="relative bg-noir text-foreground overflow-x-hidden">
       <EntryGate />
+      <ScrollProgress />
       <Spotlight />
       <UrgencyBar />
       {/* SEO H1 — visually hidden, single H1 for crawlers */}
       <h1 className="sr-only">The Lounge Noida — Premium Cafe & Late-Night Lounge in Sector 18</h1>
       <Nav />
       <Hero />
+      <Press />
       <Signature />
       <Menu />
       <Ticker />
       <WhyUs />
       <Social />
+      <FAQ />
       <FinalCTA />
       <Footer />
       <MobileStickyCTA />
+      <AmbientToggle />
       <ReservationModal open={resOpen} onClose={() => setResOpen(false)} defaultPriority={priority} />
     </main>
   );
