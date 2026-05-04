@@ -25,12 +25,12 @@ export const FinalCTA = () => {
         </h2>
 
         <p className={`mt-7 md:mt-10 max-w-md mx-auto text-sm md:text-base text-foreground/70 px-4 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.3s" }}>
-          Reservations recommended after 7 PM. Walk-ins welcome only when capacity allows.
+          <span className="text-gold font-semibold">Only a handful of tables left tonight.</span> Reservations close at 11 PM — walk-ins seated only when capacity allows.
         </p>
 
         <div className={`mt-10 md:mt-14 flex flex-wrap justify-center items-center gap-3 md:gap-4 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.5s" }}>
-          <a href="#reserve" className="gold-button">🔥 Reserve Now</a>
-          <a href="#menu" className="ghost-button">View Menu</a>
+          <a href="#reserve" className="gold-button">🔥 Reserve Tonight</a>
+          <a href="#reserve" className="ghost-button">⚡ Priority Booking</a>
         </div>
 
         <div className={`mt-12 md:mt-20 inline-flex items-center gap-3 glass rounded-full px-5 py-2.5 reveal-up ${visible ? "in" : ""}`} style={{ transitionDelay: "0.7s" }}>
@@ -38,7 +38,7 @@ export const FinalCTA = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ember opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-ember" />
           </span>
-          <span className="font-eyebrow text-[10px] text-foreground/80">Now seating · Sector 18, Noida</span>
+          <span className="font-eyebrow text-[10px] text-foreground/80">Now seating · Sector 18, Noida · Open till 1 AM</span>
         </div>
       </div>
     </section>

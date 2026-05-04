@@ -1,10 +1,11 @@
 const items = [
-  "⚡ Tonight: 87% tables booked",
-  "🔥 Live: Saxx & Soul · Saturday",
-  "✦ Members entry until 11 PM",
-  "● 42 reservations in the last hour",
-  "⚡ Limited walk-ins after 9 PM",
-  "🥂 Bottle service · Reserved booths",
+  "⚡ Tonight: 91% of tables already booked",
+  "🔥 Live Saturday: Saxx & Soul · Doors 8 PM",
+  "✦ Members & reservations seated first",
+  "● 47 reservations confirmed in the last hour",
+  "⛔ Walk-ins paused after 9 PM — book ahead",
+  "🥂 Bottle service · Reserved booths · By request only",
+  "★ Rated 4.8 by 2,000+ guests in Noida",
 ];
 
 export const Ticker = () => {
