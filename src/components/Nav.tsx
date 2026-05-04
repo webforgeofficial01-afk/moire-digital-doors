@@ -6,6 +6,7 @@ const links = [
   { label: "Menu", href: "#menu" },
   { label: "Why Us", href: "#why" },
   { label: "Gallery", href: "#social" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export const Nav = () => {
