@@ -293,6 +293,30 @@
     transform: translateZ(0);
   }
   .marquee:hover { animation-play-state: paused; }
+
+  /* Premium glass card with hover gold rim */
+  .glass {
+    transition: border-color 0.6s var(--ease-luxe), box-shadow 0.6s var(--ease-luxe), transform 0.6s var(--ease-luxe);
+  }
+  .glass:hover {
+    box-shadow: var(--shadow-card), 0 0 60px hsl(var(--gold) / 0.18);
+  }
+
+  /* Animated gold underline for headings */
+  .gold-rule {
+    position: relative;
+    display: inline-block;
+  }
+  .gold-rule::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -8px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: rule-grow 2s var(--ease-luxe) 0.4s forwards;
+  }
 }
 
 /* Mobile container tightening */
@@ -371,6 +395,11 @@
 @keyframes sheet-up {
   0% { opacity: 0; transform: translateY(40px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rule-grow {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
 }
 
 /* Ensure CTAs meet 44px tap target on mobile */
