@@ -96,13 +96,13 @@ const Card = ({ it, i }: { it: Item; i: number }) => {
         animation: `word-in 0.6s cubic-bezier(0.22,1,0.36,1) ${i * 0.05}s both`,
       }}
     >
-      {/* Tag chips */}
+      {/* Tag chips - inline, never clipped */}
       {it.tags && it.tags.length > 0 && (
-        <div className="absolute -top-2.5 left-4 right-4 flex flex-wrap gap-1.5 pointer-events-none">
+        <div className="relative z-10 flex flex-wrap gap-1.5 mb-3">
           {it.tags.map((t) => (
             <span
               key={t}
-              className={`px-2.5 py-1 rounded-full font-eyebrow text-[8px] md:text-[9px] tracking-[0.2em] shadow-lg ${TAG_META[t].cls}`}
+              className={`px-2.5 py-1 rounded-full font-eyebrow text-[8.5px] md:text-[9.5px] tracking-[0.18em] leading-none shadow-md ${TAG_META[t].cls}`}
             >
               {TAG_META[t].label}
             </span>
@@ -110,15 +110,15 @@ const Card = ({ it, i }: { it: Item; i: number }) => {
         </div>
       )}
 
-      <div className="relative z-10 flex items-start justify-between gap-4 mt-2">
+      <div className="relative z-10 flex items-start justify-between gap-3 md:gap-4">
         <div className="min-w-0 flex-1">
-          <h3 className="font-display font-bold text-lg md:text-xl text-foreground leading-tight flex items-center gap-2">
-            <span className="dish-emoji text-xl md:text-2xl">{it.emoji}</span>
-            <span className="flex-1">{it.name}</span>
+          <h3 className="font-display font-bold text-[17px] md:text-xl text-foreground leading-snug flex items-start gap-2">
+            <span className="dish-emoji emoji text-xl md:text-2xl shrink-0 leading-none">{it.emoji}</span>
+            <span className="flex-1 break-words">{it.name}</span>
           </h3>
-          <p className="text-xs md:text-sm text-foreground/60 mt-2 leading-relaxed">{it.sub}</p>
+          <p className="text-[13px] md:text-sm text-foreground/65 mt-2 leading-relaxed">{it.sub}</p>
         </div>
-        <div className="font-display font-black text-lg md:text-xl gold-text whitespace-nowrap">
+        <div className="font-display font-black text-base md:text-xl gold-text whitespace-nowrap shrink-0">
           {it.price}
         </div>
       </div>
