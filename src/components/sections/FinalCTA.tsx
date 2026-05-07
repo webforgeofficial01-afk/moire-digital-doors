@@ -79,7 +79,6 @@ export const Footer = () => (
       <div className="hairline mb-6" />
       <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] text-foreground/45 font-eyebrow">
         <span>© {new Date().getFullYear()} The Lounge, Noida. All rights reserved.</span>
-        <span>Crafted with intent.</span>
       </div>
       <div className="mt-8 pt-6 border-t border-gold/10 text-center">
         <p className="font-eyebrow text-[10px] md:text-[11px] tracking-[0.32em] text-foreground/55">
