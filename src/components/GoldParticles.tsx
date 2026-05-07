@@ -94,8 +94,8 @@ export const GoldParticles = () => {
     <canvas
       ref={ref}
       aria-hidden="true"
-      className="fixed inset-0 pointer-events-none z-0"
-      style={{ mixBlendMode: "screen" }}
+      className="fixed inset-0 pointer-events-none z-[40]"
+      style={{ mixBlendMode: "screen", opacity: 0.85 }}
     />
   );
 };
