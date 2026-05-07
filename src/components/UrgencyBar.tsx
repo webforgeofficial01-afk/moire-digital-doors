@@ -14,10 +14,14 @@ const computeTimeLeft = () => {
 export const UrgencyBar = () => {
   const [t, setT] = useState(computeTimeLeft());
   const [hidden, setHidden] = useState(false);
+  const [seats, setSeats] = useState(7);
 
   useEffect(() => {
     const i = setInterval(() => setT(computeTimeLeft()), 1000);
-    return () => clearInterval(i);
+    const s = setInterval(() => {
+      setSeats((v) => (Math.random() > 0.65 && v > 2 ? v - 1 : v));
+    }, 18000);
+    return () => { clearInterval(i); clearInterval(s); };
   }, []);
 
   if (hidden) return null;
@@ -39,9 +43,9 @@ export const UrgencyBar = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-ember" />
           </span>
           <p className="font-eyebrow text-[9px] md:text-[10px] text-foreground/85 truncate">
-            <span className="text-gold">Tonight only</span>
-            <span className="hidden sm:inline"> · Priority seating closes in </span>
-            <span className="sm:hidden"> · Closes in </span>
+            <span className="text-ember font-bold">Only {seats} tables left</span>
+            <span className="hidden sm:inline text-foreground/60"> · Priority closes in </span>
+            <span className="sm:hidden text-foreground/60"> · </span>
             <span className="gold-text font-bold tabular-nums">
               {pad(t.h)}:{pad(t.m)}:{pad(t.s)}
             </span>
