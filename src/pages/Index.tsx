@@ -16,6 +16,7 @@ import { UrgencyBar } from "@/components/UrgencyBar";
 import { Spotlight } from "@/components/Spotlight";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { AmbientToggle } from "@/components/AmbientToggle";
+import { GoldParticles } from "@/components/GoldParticles";
 import { onReservationOpen, openReservation } from "@/lib/reservation";
 
 const Index = () => {
@@ -45,6 +46,7 @@ const Index = () => {
   return (
     <main className="relative bg-noir text-foreground overflow-x-hidden">
       <EntryGate />
+      <GoldParticles />
       <ScrollProgress />
       <Spotlight />
       <UrgencyBar />

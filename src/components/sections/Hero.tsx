@@ -133,8 +133,7 @@ export const Hero = () => {
         </p>
 
         {/* Bottom marker */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-60">
-          <span className="font-eyebrow text-[9px] text-foreground/60">Scroll</span>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50">
           <div className="h-12 w-px bg-gradient-to-b from-gold to-transparent animate-pulse-glow" />
         </div>
       </div>
