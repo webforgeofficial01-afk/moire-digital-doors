@@ -45,9 +45,8 @@ const Index = () => {
   return (
     <main className="relative bg-noir text-foreground overflow-x-hidden">
       <EntryGate />
-      <GoldParticles />
+      <LiquidBackground />
       <ScrollProgress />
-      <Spotlight />
       <UrgencyBar />
       {/* SEO H1 — visually hidden, single H1 for crawlers */}
       <h1 className="sr-only">The Lounge Noida — Premium Cafe & Late-Night Lounge in Sector 18</h1>
