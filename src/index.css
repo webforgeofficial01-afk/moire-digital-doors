@@ -493,139 +493,124 @@
   }
 }
 
-/* ============ Liquid Luxury Background ============ */
-.liquid-bg {
+/* ============ Dark Chrome Noir Background ============ */
+.noir-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
   contain: strict;
+  --mx: 0;
+  --my: 0;
 }
 
-.liquid-bg .orb {
+.noir-bg > * {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.55;
+  inset: 0;
   will-change: transform;
-  mix-blend-mode: screen;
 }
 
-/* Asymmetric — intentionally off-grid placement & sizes */
-.orb-1 {
-  width: 46vmax; height: 46vmax;
-  left: -14vmax; top: -10vmax;
-  background: radial-gradient(circle at 30% 30%, hsl(42 80% 55% / 0.55), transparent 65%);
-  animation: orb-float-1 26s var(--ease-luxe) infinite alternate;
-}
-.orb-2 {
-  width: 32vmax; height: 32vmax;
-  right: -8vmax; top: 18vh;
-  background: radial-gradient(circle at 60% 40%, hsl(28 90% 55% / 0.45), transparent 65%);
-  animation: orb-float-2 32s var(--ease-luxe) infinite alternate;
-}
-.orb-3 {
-  width: 38vmax; height: 38vmax;
-  left: 22vw; bottom: -16vmax;
-  background: radial-gradient(circle at 50% 50%, hsl(46 95% 68% / 0.35), transparent 65%);
-  animation: orb-float-3 38s var(--ease-luxe) infinite alternate;
-}
-.orb-4 {
-  width: 24vmax; height: 24vmax;
-  right: 12vw; bottom: 8vh;
-  background: radial-gradient(circle at 50% 50%, hsl(38 70% 42% / 0.50), transparent 65%);
-  animation: orb-float-4 30s var(--ease-luxe) infinite alternate;
-}
-
-.liquid-waves {
-  position: absolute;
-  inset: -10% -10%;
-  width: 120%;
-  height: 120%;
-  opacity: 0.9;
-  mix-blend-mode: screen;
-}
-
-.liquid-particles {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  mix-blend-mode: screen;
-  opacity: 0.9;
-}
-
-.liquid-vignette {
-  position: absolute;
-  inset: 0;
+/* 1. Graphite base — deep matte charcoal with subtle vertical falloff */
+.noir-base {
   background:
-    radial-gradient(ellipse at center, transparent 55%, hsl(0 0% 0% / 0.55) 100%);
+    radial-gradient(120% 80% at 50% 0%, hsl(0 0% 9%) 0%, hsl(0 0% 5%) 45%, hsl(0 0% 3%) 100%);
 }
 
-/* All foreground content above background */
+/* 2. Architectural grid — fine metallic lines, mask-faded */
+.noir-grid {
+  background-image:
+    linear-gradient(to right, hsl(42 20% 70% / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(42 20% 70% / 0.045) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 30%, transparent 85%);
+          mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 30%, transparent 85%);
+  transform: translate3d(calc(var(--mx) * -10px), calc(var(--my) * -10px), 0);
+  transition: transform 0.6s var(--ease-luxe);
+}
+
+/* 3. Slow chrome light sweep — diagonal silver gradient */
+.noir-sweep {
+  background: linear-gradient(115deg,
+    transparent 0%,
+    transparent 38%,
+    hsl(42 25% 80% / 0.05) 48%,
+    hsl(42 35% 92% / 0.08) 50%,
+    hsl(42 25% 80% / 0.05) 52%,
+    transparent 62%,
+    transparent 100%);
+  background-size: 220% 220%;
+  mix-blend-mode: screen;
+  animation: noir-sweep 18s linear infinite;
+}
+
+/* 4. Soft graphite spotlights — large, slow, reactive to mouse */
+.noir-spot {
+  border-radius: 50%;
+  filter: blur(90px);
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+.noir-spot-a {
+  width: 60vmax; height: 60vmax;
+  left: -20vmax; top: -22vmax;
+  background: radial-gradient(circle at 50% 50%, hsl(220 12% 22% / 0.85), transparent 65%);
+  transform: translate3d(calc(var(--mx) * 30px), calc(var(--my) * 24px), 0);
+  animation: noir-spot-a 28s var(--ease-luxe) infinite alternate;
+}
+.noir-spot-b {
+  width: 48vmax; height: 48vmax;
+  right: -18vmax; bottom: -20vmax;
+  background: radial-gradient(circle at 50% 50%, hsl(42 18% 28% / 0.55), transparent 65%);
+  transform: translate3d(calc(var(--mx) * -28px), calc(var(--my) * -22px), 0);
+  animation: noir-spot-b 34s var(--ease-luxe) infinite alternate;
+}
+
+/* 5. Razor-thin metallic horizon line */
+.noir-horizon {
+  top: 62%;
+  height: 1px;
+  inset-inline: 0;
+  inset-block: auto;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    hsl(42 30% 70% / 0.12) 25%,
+    hsl(42 50% 88% / 0.32) 50%,
+    hsl(42 30% 70% / 0.12) 75%,
+    transparent 100%);
+  box-shadow: 0 0 24px hsl(42 40% 60% / 0.08);
+}
+
+/* 6. Cinematic vignette */
+.noir-vignette {
+  background:
+    radial-gradient(ellipse at center, transparent 50%, hsl(0 0% 0% / 0.7) 100%),
+    linear-gradient(180deg, hsl(0 0% 0% / 0.4) 0%, transparent 18%, transparent 82%, hsl(0 0% 0% / 0.5) 100%);
+}
+
+/* Foreground above background */
 main { position: relative; z-index: 1; }
 
+@keyframes noir-sweep {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
+@keyframes noir-spot-a {
+  0%   { transform: translate3d(calc(var(--mx) * 30px), calc(var(--my) * 24px), 0) scale(1); }
+  100% { transform: translate3d(calc(var(--mx) * 30px + 6vw), calc(var(--my) * 24px + 4vh), 0) scale(1.08); }
+}
+@keyframes noir-spot-b {
+  0%   { transform: translate3d(calc(var(--mx) * -28px), calc(var(--my) * -22px), 0) scale(1.05); }
+  100% { transform: translate3d(calc(var(--mx) * -28px - 5vw), calc(var(--my) * -22px - 5vh), 0) scale(0.96); }
+}
+
 @media (max-width: 768px) {
-  .liquid-waves { display: none; }
-  .liquid-bg .orb { filter: blur(60px); opacity: 0.45; }
+  .noir-spot { filter: blur(70px); opacity: 0.55; }
+  .noir-grid { background-size: 56px 56px, 56px 56px; }
+  .noir-sweep { animation-duration: 26s; opacity: 0.7; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .liquid-bg .orb { animation: none !important; }
-  .liquid-waves { display: none; }
-}
-
-@keyframes orb-float-1 {
-  0%   { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(8vw, 6vh, 0) scale(1.08); }
-}
-@keyframes orb-float-2 {
-  0%   { transform: translate3d(0, 0, 0) scale(1.05); }
-  100% { transform: translate3d(-6vw, 9vh, 0) scale(0.95); }
-}
-@keyframes orb-float-3 {
-  0%   { transform: translate3d(0, 0, 0) scale(0.95); }
-  100% { transform: translate3d(7vw, -8vh, 0) scale(1.1); }
-}
-@keyframes orb-float-4 {
-  0%   { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(-9vw, -5vh, 0) scale(1.06); }
-}
-
-/* ===== Small drifting gold orbs (premium fireflies) ===== */
-.gold-orbs {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  mix-blend-mode: screen;
-  contain: strict;
-}
-.g-orb {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%,
-    hsl(var(--hue, 46) 95% 80% / 0.95),
-    hsl(var(--hue, 46) 90% 60% / 0.6) 45%,
-    transparent 70%);
-  box-shadow:
-    0 0 8px hsl(var(--hue, 46) 95% 65% / 0.7),
-    0 0 18px hsl(var(--hue, 46) 90% 55% / 0.35);
-  opacity: 0;
-  will-change: transform, opacity;
-  transform: translate3d(0, 0, 0);
-  animation: g-orb-rise var(--dur, 22s) linear var(--delay, 0s) infinite;
-}
-
-@keyframes g-orb-rise {
-  0%   { transform: translate3d(0, 0, 0) scale(0.6);                opacity: 0; }
-  10%  {                                                            opacity: 0.9; }
-  50%  { transform: translate3d(calc(var(--drift, 0vw) * 0.5), calc(var(--rise, -40vh) * 0.5), 0) scale(1); opacity: 0.85; }
-  90%  {                                                            opacity: 0.7; }
-  100% { transform: translate3d(var(--drift, 0vw), var(--rise, -40vh), 0) scale(1.05); opacity: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .g-orb { animation: none !important; opacity: 0.5; }
+  .noir-sweep, .noir-spot-a, .noir-spot-b { animation: none !important; }
 }
 
