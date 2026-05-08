@@ -13,10 +13,9 @@ import { EntryGate } from "@/components/EntryGate";
 import { ReservationModal } from "@/components/ReservationModal";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { UrgencyBar } from "@/components/UrgencyBar";
-import { Spotlight } from "@/components/Spotlight";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { AmbientToggle } from "@/components/AmbientToggle";
-import { GoldParticles } from "@/components/GoldParticles";
+import { LiquidBackground } from "@/components/LiquidBackground";
 import { onReservationOpen, openReservation } from "@/lib/reservation";
 
 const Index = () => {
