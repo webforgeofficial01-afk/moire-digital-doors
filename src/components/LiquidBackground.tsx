@@ -1,66 +1,62 @@
-import { useMemo } from "react";
+import { useEffect, useRef } from "react";
 
 /**
- * Liquid Luxury background — pure CSS, GPU-only.
- * - Large asymmetric soft orbs (ambient color)
- * - Small drifting gold orbs (premium "fireflies")
- * - Soft vignette to keep edges premium
- * No SVG filters, no canvas, no JS animation loop → buttery smooth.
+ * Dark Chrome Noir — cinematic luxury background.
+ * Pure CSS + a single rAF for mouse parallax. GPU-only transforms.
+ *
+ * Layers (back → front):
+ *  1. Deep graphite gradient base
+ *  2. Architectural fine grid (mask-faded)
+ *  3. Slow chrome light sweep
+ *  4. Two large soft graphite "spotlights" with mouse parallax
+ *  5. Razor-thin metallic horizon line
+ *  6. Cinematic vignette
  */
 export const LiquidBackground = () => {
-  // Pre-compute small orb positions/timings once (stable across renders)
-  const smallOrbs = useMemo(() => {
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-    const count = isMobile ? 10 : 18;
-    // deterministic-ish pseudo-random for stable layout
-    const rng = (i: number, salt: number) => {
-      const x = Math.sin(i * 9301 + salt * 49297) * 233280;
-      return x - Math.floor(x);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+
+    let raf = 0;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+
+    const onMove = (e: PointerEvent) => {
+      const w = window.innerWidth, h = window.innerHeight;
+      tx = (e.clientX / w - 0.5) * 2; // -1..1
+      ty = (e.clientY / h - 0.5) * 2;
+      if (!raf) raf = requestAnimationFrame(tick);
     };
-    return Array.from({ length: count }, (_, i) => {
-      const size = 4 + rng(i, 1) * 8;            // 4–12 px
-      const left = rng(i, 2) * 100;              // %
-      const top = rng(i, 3) * 100;               // %
-      const dur = 14 + rng(i, 4) * 18;           // 14–32s
-      const delay = -rng(i, 5) * dur;            // negative for staggered start
-      const drift = (rng(i, 6) - 0.5) * 30;      // -15..15 vw
-      const rise = 30 + rng(i, 7) * 50;          // vh
-      const hue = rng(i, 8) > 0.5 ? 46 : 38;     // bright vs deep gold
-      return { size, left, top, dur, delay, drift, rise, hue, key: i };
-    });
+    const tick = () => {
+      cx += (tx - cx) * 0.06;
+      cy += (ty - cy) * 0.06;
+      el.style.setProperty("--mx", cx.toFixed(3));
+      el.style.setProperty("--my", cy.toFixed(3));
+      if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        raf = 0;
+      }
+    };
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
-    <div aria-hidden="true" className="liquid-bg">
-      {/* Large ambient orbs — asymmetric */}
-      <span className="orb orb-1" />
-      <span className="orb orb-2" />
-      <span className="orb orb-3" />
-      <span className="orb orb-4" />
-
-      {/* Small drifting gold orbs */}
-      <div className="gold-orbs">
-        {smallOrbs.map((o) => (
-          <span
-            key={o.key}
-            className="g-orb"
-            style={{
-              width: `${o.size}px`,
-              height: `${o.size}px`,
-              left: `${o.left}%`,
-              top: `${o.top}%`,
-              ["--dur" as any]: `${o.dur}s`,
-              ["--delay" as any]: `${o.delay}s`,
-              ["--drift" as any]: `${o.drift}vw`,
-              ["--rise" as any]: `-${o.rise}vh`,
-              ["--hue" as any]: `${o.hue}`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Vignette */}
-      <div className="liquid-vignette" />
+    <div ref={rootRef} aria-hidden="true" className="noir-bg">
+      <div className="noir-base" />
+      <div className="noir-grid" />
+      <div className="noir-sweep" />
+      <div className="noir-spot noir-spot-a" />
+      <div className="noir-spot noir-spot-b" />
+      <div className="noir-horizon" />
+      <div className="noir-vignette" />
     </div>
   );
 };
