@@ -13,10 +13,9 @@ import { EntryGate } from "@/components/EntryGate";
 import { ReservationModal } from "@/components/ReservationModal";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { UrgencyBar } from "@/components/UrgencyBar";
-import { Spotlight } from "@/components/Spotlight";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { AmbientToggle } from "@/components/AmbientToggle";
-import { GoldParticles } from "@/components/GoldParticles";
+import { LiquidBackground } from "@/components/LiquidBackground";
 import { onReservationOpen, openReservation } from "@/lib/reservation";
 
 const Index = () => {
@@ -46,9 +45,8 @@ const Index = () => {
   return (
     <main className="relative bg-noir text-foreground overflow-x-hidden">
       <EntryGate />
-      <GoldParticles />
+      <LiquidBackground />
       <ScrollProgress />
-      <Spotlight />
       <UrgencyBar />
       {/* SEO H1 — visually hidden, single H1 for crawlers */}
       <h1 className="sr-only">The Lounge Noida — Premium Cafe & Late-Night Lounge in Sector 18</h1>
