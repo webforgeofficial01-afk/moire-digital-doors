@@ -648,21 +648,34 @@ main { position: relative; z-index: 1; }
   100% { background-position: 200% 200%; }
 }
 @keyframes noir-spot-a {
-  0%   { transform: translate3d(calc(var(--mx) * 30px), calc(var(--my) * 24px), 0) scale(1); }
-  100% { transform: translate3d(calc(var(--mx) * 30px + 6vw), calc(var(--my) * 24px + 4vh), 0) scale(1.08); }
+  0%   { transform: translate3d(calc(var(--mx) * 30px), calc(var(--my) * 24px + var(--sy) * 40px), 0) scale(1); }
+  100% { transform: translate3d(calc(var(--mx) * 30px + 6vw), calc(var(--my) * 24px + var(--sy) * 40px + 4vh), 0) scale(1.08); }
 }
 @keyframes noir-spot-b {
-  0%   { transform: translate3d(calc(var(--mx) * -28px), calc(var(--my) * -22px), 0) scale(1.05); }
-  100% { transform: translate3d(calc(var(--mx) * -28px - 5vw), calc(var(--my) * -22px - 5vh), 0) scale(0.96); }
+  0%   { transform: translate3d(calc(var(--mx) * -28px), calc(var(--my) * -22px - var(--sy) * 50px), 0) scale(1.05); }
+  100% { transform: translate3d(calc(var(--mx) * -28px - 5vw), calc(var(--my) * -22px - var(--sy) * 50px - 5vh), 0) scale(0.96); }
+}
+@keyframes noir-aurora {
+  0%   { transform: translate3d(calc(var(--mx) * 18px), calc(var(--my) * 14px - var(--sy) * 60px), 0) scale(1); opacity: 0.85; }
+  100% { transform: translate3d(calc(var(--mx) * 18px + 3vw), calc(var(--my) * 14px - var(--sy) * 60px - 2vh), 0) scale(1.06); opacity: 1; }
+}
+@keyframes mote-rise {
+  0%   { transform: translate3d(0, 0, 0) scale(0.6); opacity: 0; }
+  10%  { opacity: 0.95; }
+  50%  { transform: translate3d(20px, -55vh, 0) scale(1); }
+  90%  { opacity: 0.7; }
+  100% { transform: translate3d(-30px, -110vh, 0) scale(1.1); opacity: 0; }
 }
 
 @media (max-width: 768px) {
   .noir-spot { filter: blur(70px); opacity: 0.55; }
   .noir-grid { background-size: 56px 56px, 56px 56px; }
   .noir-sweep { animation-duration: 26s; opacity: 0.7; }
+  .noir-scanlines { display: none; }
+  .mote { width: 3px; height: 3px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .noir-sweep, .noir-spot-a, .noir-spot-b { animation: none !important; }
+  .noir-sweep, .noir-spot-a, .noir-spot-b, .noir-aurora, .mote { animation: none !important; }
 }
 
