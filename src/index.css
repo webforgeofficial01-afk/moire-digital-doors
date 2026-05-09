@@ -493,7 +493,7 @@
   }
 }
 
-/* ============ Dark Chrome Noir Background ============ */
+/* ============ Cinematic Noir Background ============ */
 .noir-bg {
   position: fixed;
   inset: 0;
@@ -503,92 +503,144 @@
   contain: strict;
   --mx: 0;
   --my: 0;
+  --sy: 0;
+  --scene-hue: 42;
 }
 
 .noir-bg > * {
   position: absolute;
   inset: 0;
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
-/* 1. Graphite base — deep matte charcoal with subtle vertical falloff */
+/* 1. Graphite base — scene tint shifts with scroll */
 .noir-base {
   background:
-    radial-gradient(120% 80% at 50% 0%, hsl(0 0% 9%) 0%, hsl(0 0% 5%) 45%, hsl(0 0% 3%) 100%);
+    radial-gradient(120% 80% at 50% calc(0% + var(--sy) * 30%),
+      hsl(var(--scene-hue) 20% 10%) 0%,
+      hsl(0 0% 5%) 45%,
+      hsl(0 0% 2.5%) 100%);
+  transition: background 1.2s var(--ease-luxe);
 }
 
-/* 2. Architectural grid — fine metallic lines, mask-faded */
+/* 2. Aurora gold curtains */
+.noir-aurora {
+  background:
+    radial-gradient(60% 50% at 20% 30%, hsl(var(--scene-hue) 70% 45% / 0.18), transparent 70%),
+    radial-gradient(55% 45% at 80% 70%, hsl(calc(var(--scene-hue) - 8) 80% 50% / 0.14), transparent 70%),
+    radial-gradient(40% 40% at 50% 100%, hsl(var(--scene-hue) 90% 55% / 0.10), transparent 70%);
+  filter: blur(40px) saturate(120%);
+  mix-blend-mode: screen;
+  transform: translate3d(calc(var(--mx) * 18px), calc(var(--my) * 14px - var(--sy) * 60px), 0);
+  animation: noir-aurora 24s var(--ease-luxe) infinite alternate;
+}
+
+/* 3. Architectural grid */
 .noir-grid {
   background-image:
-    linear-gradient(to right, hsl(42 20% 70% / 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(42 20% 70% / 0.045) 1px, transparent 1px);
+    linear-gradient(to right, hsl(42 20% 70% / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(42 20% 70% / 0.05) 1px, transparent 1px);
   background-size: 80px 80px, 80px 80px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 30%, transparent 85%);
-          mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 30%, transparent 85%);
-  transform: translate3d(calc(var(--mx) * -10px), calc(var(--my) * -10px), 0);
-  transition: transform 0.6s var(--ease-luxe);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% calc(50% - var(--sy) * 20%), #000 30%, transparent 85%);
+          mask-image: radial-gradient(ellipse 70% 60% at 50% calc(50% - var(--sy) * 20%), #000 30%, transparent 85%);
+  transform: translate3d(calc(var(--mx) * -10px), calc(var(--my) * -10px - var(--sy) * 80px), 0);
 }
 
-/* 3. Slow chrome light sweep — diagonal silver gradient */
+/* 4. Slow chrome sweep */
 .noir-sweep {
   background: linear-gradient(115deg,
-    transparent 0%,
-    transparent 38%,
+    transparent 0%, transparent 38%,
     hsl(42 25% 80% / 0.05) 48%,
-    hsl(42 35% 92% / 0.08) 50%,
+    hsl(42 35% 92% / 0.10) 50%,
     hsl(42 25% 80% / 0.05) 52%,
-    transparent 62%,
-    transparent 100%);
+    transparent 62%, transparent 100%);
   background-size: 220% 220%;
   mix-blend-mode: screen;
   animation: noir-sweep 18s linear infinite;
 }
 
-/* 4. Soft graphite spotlights — large, slow, reactive to mouse */
+/* 5. Spotlights — three layers, mouse + scroll reactive */
 .noir-spot {
   border-radius: 50%;
   filter: blur(90px);
   mix-blend-mode: screen;
-  opacity: 0.7;
+  opacity: 0.75;
 }
 .noir-spot-a {
-  width: 60vmax; height: 60vmax;
-  left: -20vmax; top: -22vmax;
-  background: radial-gradient(circle at 50% 50%, hsl(220 12% 22% / 0.85), transparent 65%);
-  transform: translate3d(calc(var(--mx) * 30px), calc(var(--my) * 24px), 0);
+  width: 62vmax; height: 62vmax;
+  left: -22vmax; top: -24vmax;
+  background: radial-gradient(circle, hsl(var(--scene-hue) 50% 40% / 0.55), transparent 65%);
+  transform: translate3d(calc(var(--mx) * 30px), calc(var(--my) * 24px + var(--sy) * 40px), 0);
   animation: noir-spot-a 28s var(--ease-luxe) infinite alternate;
 }
 .noir-spot-b {
-  width: 48vmax; height: 48vmax;
-  right: -18vmax; bottom: -20vmax;
-  background: radial-gradient(circle at 50% 50%, hsl(42 18% 28% / 0.55), transparent 65%);
-  transform: translate3d(calc(var(--mx) * -28px), calc(var(--my) * -22px), 0);
+  width: 50vmax; height: 50vmax;
+  right: -20vmax; bottom: -22vmax;
+  background: radial-gradient(circle, hsl(var(--scene-hue) 35% 32% / 0.50), transparent 65%);
+  transform: translate3d(calc(var(--mx) * -28px), calc(var(--my) * -22px - var(--sy) * 50px), 0);
   animation: noir-spot-b 34s var(--ease-luxe) infinite alternate;
 }
+.noir-spot-c {
+  width: 38vmax; height: 38vmax;
+  left: 50%; top: 50%;
+  margin-left: -19vmax; margin-top: -19vmax;
+  background: radial-gradient(circle, hsl(220 15% 22% / 0.6), transparent 65%);
+  transform: translate3d(calc(var(--mx) * 14px), calc(var(--my) * 12px), 0) scale(calc(0.9 + var(--sy) * 0.4));
+  opacity: calc(0.4 + var(--sy) * 0.3);
+}
 
-/* 5. Razor-thin metallic horizon line */
+/* 6. Drifting gold motes */
+.noir-motes { mix-blend-mode: screen; }
+.mote {
+  position: absolute;
+  bottom: -8vh;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, hsl(var(--scene-hue) 90% 70% / 0.95), hsl(var(--scene-hue) 90% 60% / 0.4) 40%, transparent 70%);
+  box-shadow: 0 0 10px hsl(var(--scene-hue) 90% 65% / 0.6);
+  opacity: 0;
+  animation-name: mote-rise;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  will-change: transform, opacity;
+}
+
+/* 7. Razor horizon */
 .noir-horizon {
-  top: 62%;
+  top: calc(62% - var(--sy) * 25%);
   height: 1px;
   inset-inline: 0;
   inset-block: auto;
   background: linear-gradient(90deg,
     transparent 0%,
-    hsl(42 30% 70% / 0.12) 25%,
-    hsl(42 50% 88% / 0.32) 50%,
-    hsl(42 30% 70% / 0.12) 75%,
+    hsl(var(--scene-hue) 50% 70% / 0.18) 25%,
+    hsl(var(--scene-hue) 70% 88% / 0.45) 50%,
+    hsl(var(--scene-hue) 50% 70% / 0.18) 75%,
     transparent 100%);
-  box-shadow: 0 0 24px hsl(42 40% 60% / 0.08);
+  box-shadow: 0 0 30px hsl(var(--scene-hue) 60% 60% / 0.2);
+  transition: top 0.8s var(--ease-luxe);
 }
 
-/* 6. Cinematic vignette */
+/* 8a. Subtle scanlines for cinematic feel */
+.noir-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    hsl(0 0% 0% / 0.18) 3px,
+    transparent 4px
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+/* 8b. Cinematic vignette */
 .noir-vignette {
   background:
-    radial-gradient(ellipse at center, transparent 50%, hsl(0 0% 0% / 0.7) 100%),
-    linear-gradient(180deg, hsl(0 0% 0% / 0.4) 0%, transparent 18%, transparent 82%, hsl(0 0% 0% / 0.5) 100%);
+    radial-gradient(ellipse at center, transparent 48%, hsl(0 0% 0% / 0.75) 100%),
+    linear-gradient(180deg, hsl(0 0% 0% / 0.45) 0%, transparent 18%, transparent 80%, hsl(0 0% 0% / 0.55) 100%);
 }
 
-/* Foreground above background */
 main { position: relative; z-index: 1; }
 
 @keyframes noir-sweep {
